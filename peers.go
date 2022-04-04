@@ -21,7 +21,7 @@ package groupcache
 import (
 	"context"
 
-	pb "github.com/mailgun/groupcache/v2/groupcachepb"
+	pb "github.com/exaring/groupcache/v2/groupcachepb"
 )
 
 // ProtoGetter is the interface that must be implemented by a peer.
@@ -50,9 +50,7 @@ type NoPeers struct{}
 func (NoPeers) PickPeer(key string) (peer ProtoGetter, ok bool) { return }
 func (NoPeers) GetAll() []ProtoGetter                           { return []ProtoGetter{} }
 
-var (
-	portPicker func(groupName string) PeerPicker
-)
+var portPicker func(groupName string) PeerPicker
 
 // RegisterPeerPicker registers the peer initialization function.
 // It is called once, when the first group is created.

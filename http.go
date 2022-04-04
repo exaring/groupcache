@@ -28,9 +28,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/exaring/groupcache/v2/consistenthash"
+	pb "github.com/exaring/groupcache/v2/groupcachepb"
 	"github.com/golang/protobuf/proto"
-	"github.com/mailgun/groupcache/v2/consistenthash"
-	pb "github.com/mailgun/groupcache/v2/groupcachepb"
 )
 
 const defaultBasePath = "/_groupcache/"

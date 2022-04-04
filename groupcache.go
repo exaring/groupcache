@@ -32,9 +32,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	pb "github.com/mailgun/groupcache/v2/groupcachepb"
-	"github.com/mailgun/groupcache/v2/lru"
-	"github.com/mailgun/groupcache/v2/singleflight"
+	pb "github.com/exaring/groupcache/v2/groupcachepb"
+	"github.com/exaring/groupcache/v2/lru"
+	"github.com/exaring/groupcache/v2/singleflight"
 	"github.com/sirupsen/logrus"
 )
 
@@ -292,7 +292,6 @@ func (g *Group) Remove(ctx context.Context, key string) error {
 	g.peersOnce.Do(g.initPeers)
 
 	_, err := g.removeGroup.Do(key, func() (interface{}, error) {
-
 		// Remove from key owner first
 		owner, ok := g.peers.PickPeer(key)
 		if ok {
